@@ -1,0 +1,53 @@
+<section id="intro" class="container intro">
+  <div class="intro-header">
+    <div class="intro-logo ">
+      <a href="{{ env.callcenterSite }}" target="blank">
+        <img src="{{ clientLogo }}" class="img-fluid" />
+      </a>
+    </div>
+    <div>
+      <h3 class="display-2 mb-0">{{ title }}</h3>
+      <h2 class="display-4 mt-0">{{ env.callcenterSlogan }}</h2>
+      <p class="display-5">{{ env.callcenterName }} - {{ env.version }} -
+        {{version}}</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- Carousel -->
+<section class="">
+  <ngb-carousel #carousel interval="5000" [pauseOnHover]="pauseOnHover"
+                [showNavigationArrows]="showNavigationArrows"
+                [showNavigationIndicators]="showNavigationIndicators"
+                (slide)="onSlide($event)">
+    <ng-template ngbSlide *ngFor="let img of images; index as i">
+
+      <a href="{{env.callcenterSite}}" target="_blank"
+         rel="nofollow noopener noreferrer">
+        <div class="picsum-img-wrapper">
+          <img [src]="img.img" alt="{{img}}">
+        </div>
+      </a>
+    </ng-template>
+  </ngb-carousel>
+</section>
+
+
+<!-- Carousel -->
+<!-- <section class="">
+  <ngb-carousel #carousel interval="10000" [pauseOnHover]="pauseOnHover"
+                (slide)="onSlide($event)">
+    <ng-template ngbSlide *ngFor="let img of images; index as i">
+      <div class="carousel-caption">
+        <h3> {{img.title}}</h3>
+      </div>
+      <a href="{{env.callcenterSite}}" target="_blank"
+         rel="nofollow noopener noreferrer">
+        <div class="picsum-img-wrapper">
+          <img [src]="img.img" alt="{{img}}">
+        </div>
+      </a>
+    </ng-template>
+  </ngb-carousel>
+</section> -->

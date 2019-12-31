@@ -1,0 +1,116 @@
+<section class="d-flex justify-content-between">
+  <div>
+    <button class="btn btn-outline-primary btn-sm mr-1"
+            (click)="onGetRecords()">Get
+      all</button>
+    <button class="btn btn-outline-primary btn-sm mr-1"
+            (click)="onExportToCsv()">Export</button>
+    <button class="btn btn-outline-primary btn-sm mr-1"
+            (click)="unPopulateForm()">New</button>
+  </div>
+
+  <div>
+    <label>Full text search:</label>
+    <input type="text" class=" agent-box submenu-field ml-1"
+           placeholder="Find..." [(ngModel)]="findInList"
+           (keyup)="onSearch(findInList)" (click)="clearForm()" /></div>
+</section>
+
+
+<table
+       class="table table-hover table-wrapper-scroll-y table-scrollbar tableFixHead">
+
+  <thead>
+    <tr class="tableHeaderBackground">
+
+      <!-- Id -->
+      <th scope="col" class="tableHeaderBackground" width="10%">Id</th>
+
+      <!-- Fullname -->
+      <th scope="col" class="tableHeaderBackground" sortable="employeeFullName"
+          (sort)="onSort($event)" width="50%">
+        Fullname</th>
+
+      <!-- Mobile -->
+      <th scope="col" class="tableHeaderBackground" sortable="employeeMobile"
+          (sort)="onSort($event)" width="20%">Mobile
+      </th>
+
+      <!-- Position -->
+      <th scope="col" class="tableHeaderBackground" sortable="employeePosition"
+          (sort)="onSort($event)" width="20%">
+        Position</th>
+
+      <!-- Delete icon -->
+      <th scope="col" class="tableHeaderBackground" sortable="employeePosition"
+          (sort)="onSort($event)" width="10%">
+        #</th>
+    </tr>
+  </thead>
+
+
+  <tr *ngFor="let employee of this.employeeService.list; index as i">
+
+    <!-- Index -->
+    <th scope="row">{{ i + 1 }}</th>
+
+    <!-- employeeFullName -->
+    <td (click)="populateForm(employee)">
+      <ngb-highlight [result]="employee.employeeFullName" [term]="findInList">
+      </ngb-highlight>
+
+    </td>
+
+    <!-- employeeMobile -->
+    <td (click)="populateForm(employee)">
+      <ngb-highlight [result]="employee.employeeMobile" [term]="findInList">
+      </ngb-highlight>
+    </td>
+
+    <!-- employeePosition -->
+    <td (click)="populateForm(employee)">
+      <ngb-highlight [result]="employee.employeePosition" [term]="findInList">
+      </ngb-highlight>
+    </td>
+
+    <!-- Button -->
+    <td>
+      <button (click)="open(deleteConfirm)"
+              (mouseenter)="populateForm(employee)"
+              (mouseleave)="unPopulateForm()"
+              class=" btn btn-sm btn-outline-danger">
+        <fa-icon [icon]="faTimes"></fa-icon>
+      </button>
+    </td>
+  </tr>
+</table>
+
+
+
+<ng-template #deleteConfirm class="modal-full">
+
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-title">Profile deletion</h4>
+    <button type="button" class="close" aria-describedby="modal-title"
+            (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p><strong>Are you sure you want to delete <span
+              class="text-primary">{{selectedRow.employeeFullName}}</span>
+        profile?</strong></p>
+    <p>All information associated to this user profile will be permanently
+      deleted.
+      <span class="text-danger">This operation can not be undone.</span>
+    </p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-secondary"
+            (click)="modal.dismiss('cancel click')">Cancel</button>
+    <button type="button" class="btn btn-danger"
+            (click)="onDeleteRecord(selectedRow)">Ok</button>
+  </div>
+
+
+</ng-template>

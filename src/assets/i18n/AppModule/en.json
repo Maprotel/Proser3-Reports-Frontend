@@ -1,0 +1,13 @@
+{
+  "NAME": "My name is {{name}}",
+  "TITLE": "Title",
+  "EMPLOYEE_REGISTER": {
+    "EMPLOYEE_REGISTER": "Employee Register",
+    "FULL_NAME": "Full name",
+    "POSITION": "Position",
+    "EMPLOYEE_CODE": "Employee code",
+    "MOBILE": "Mobile",
+    "THIS_FIELD_IS_REQUIRED": "This field is required",
+    "SUBMIT": "Submit"
+  }
+}

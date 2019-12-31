@@ -1,0 +1,67 @@
+<ng-container *transloco="let t">
+
+
+  <!-- Title -->
+  <h1 class="form-title text-center">
+    {{ t('EMPLOYEE_REGISTER.EMPLOYEE_REGISTER') }}
+  </h1>
+  <section class="card"> </section>
+
+  <form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
+    <!-- HIDDEN ID -->
+    <input type="hidden" name="employeeId" #employeeId="ngModel"
+           [(ngModel)]="employeeService.formData.employeeId" id="">
+
+    <!-- FULL NAME -->
+    <div class="form-group">
+      <label>{{ t('EMPLOYEE_REGISTER.FULL_NAME')}}</label>
+      <input name="employeeFullName" #employeeFullName="ngModel"
+             [(ngModel)]="employeeService.formData.employeeFullName"
+             class="form-control" required>
+      <div class="validation-error"
+           *ngIf="employeeFullName.invalid && employeeFullName.touched">
+        {{t('EMPLOYEE_REGISTER.THIS_FIELD_IS_REQUIRED')}}
+      </div>
+    </div>
+
+    <!-- POSITION -->
+    <div class="form-group ">
+      <label>{{ t('EMPLOYEE_REGISTER.POSITION')}}</label>
+      <input name="employeePosition" #employeePosition="ngModel"
+             [(ngModel)]="employeeService.formData.employeePosition"
+             class="form-control">
+    </div>
+
+
+    <section class="form-row">
+
+      <!-- EMPLOYEE CODE -->
+      <div class="form-group  col-md-6">
+        <label>{{ t('EMPLOYEE_REGISTER.EMPLOYEE_CODE')}}</label>
+        <input name="employeeCode" #employeeCode="ngModel"
+               [(ngModel)]="employeeService.formData.employeeCode"
+               class="form-control">
+      </div>
+
+      <!-- MOBILE -->
+      <div class="form-group col-md-6">
+        <label>{{ t('EMPLOYEE_REGISTER.MOBILE')}}</label>
+
+        <input name="employeeMobile" #employeeMobile="ngModel"
+               [(ngModel)]="employeeService.formData.employeeMobile"
+               class="form-control">
+      </div>
+
+
+
+    </section>
+
+    <!-- BUTTONS -->
+    <div class="form-group">
+      <button type="submit" [disabled]="form.invalid || form.pristine"
+              class="btn btn-lg btn-block">{{t('EMPLOYEE_REGISTER.SUBMIT')}}</button>
+    </div>
+
+  </form>
+
+</ng-container>

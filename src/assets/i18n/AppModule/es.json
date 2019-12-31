@@ -1,0 +1,13 @@
+{
+  "NAME": "Mi nombre es {{name}}",
+  "TITLE": "Título",
+  "EMPLOYEE_REGISTER": {
+    "EMPLOYEE_REGISTER": "Registro de Empleado",
+    "FULL_NAME": "Nombre completo",
+    "POSITION": "Posición",
+    "EMPLOYEE_CODE": "Código de empleado",
+    "MOBILE": "Móvil",
+    "THIS_FIELD_IS_REQUIRED": "Este campo es obligatorio",
+    "SUBMIT": "Enviar"
+  },
+}

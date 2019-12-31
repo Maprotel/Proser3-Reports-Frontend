@@ -1,5 +1,6 @@
-<ng-container *transloco="let t; scope: 'person';">
+<ng-container *transloco="let t; scope: 'employee';">
   <app-header></app-header>
+
 
   <article *ngIf="alertMessage.alertShow">
     <app-alert-stripe [alertMessage]="alertMessage">
@@ -19,11 +20,11 @@
 
           <div class="row">
             <div class="col-md-3">
-              <app-person-detail></app-person-detail>
+              <app-employee-detail></app-employee-detail>
             </div>
             <div class="col-md-9">
-              <app-person-list (alertBack)="onAlertBack($event)">
-              </app-person-list>
+              <app-employee-list (alertBack)="onAlertBack($event)">
+              </app-employee-list>
             </div>
           </div>
         </div>

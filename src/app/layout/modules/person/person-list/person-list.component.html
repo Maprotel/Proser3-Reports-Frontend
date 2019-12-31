@@ -1,4 +1,4 @@
-<ng-container *transloco="let t">
+<ng-container *transloco="let t; scope: 'person';">
   <section class="d-flex justify-content-between">
     <div>
       <button class="btn btn-outline-primary btn-sm mr-1"
@@ -33,15 +33,26 @@
             (sort)="onSort($event)" width="50%">
           {{ t('TXT-PERSON-FULL_NAME') }}</th>
 
-        <!-- Mobile -->
+        <!-- TYPENAME -->
         <th scope="col" class="tableHeaderBackground" sortable="personMobile"
-            (sort)="onSort($event)" width="20%">{{ t('TXT-PERSON-MOBILE') }}
+            (sort)="onSort($event)" width="20%">{{ t('TXT-PERSON-TYPENAME') }}
         </th>
 
-        <!-- Position -->
+        <!-- TYPEID -->
         <th scope="col" class="tableHeaderBackground" sortable="personPosition"
             (sort)="onSort($event)" width="20%">
-          {{ t('TXT-PERSON-POSITION') }}</th>
+          {{ t('TXT-PERSON-TYPEID') }}</th>
+
+        <!-- CHK -->
+        <th scope="col" class="tableHeaderBackground" sortable="personPosition"
+            (sort)="onSort($event)" width="20%">
+          {{ t('TXT-PERSON-CHK') }}</th>
+
+
+        <!-- INFO -->
+        <th scope="col" class="tableHeaderBackground" sortable="personPosition"
+            (sort)="onSort($event)" width="20%">
+          {{ t('TXT-PERSON-INFO') }}</th>
 
         <!-- Delete icon -->
         <th scope="col" class="tableHeaderBackground" sortable="personPosition"
@@ -63,15 +74,27 @@
 
       </td>
 
-      <!-- personMobile -->
+      <!-- personTypeName -->
       <td (click)="populateForm(person)">
-        <ngb-highlight [result]="person.personMobile" [term]="findInList">
+        <ngb-highlight [result]="person.personTypeName" [term]="findInList">
         </ngb-highlight>
       </td>
 
-      <!-- personPosition -->
+      <!-- personTypeId -->
       <td (click)="populateForm(person)">
-        <ngb-highlight [result]="person.personPosition" [term]="findInList">
+        <ngb-highlight [result]="person.personTypeId" [term]="findInList">
+        </ngb-highlight>
+      </td>
+
+      <!-- personChk -->
+      <td (click)="populateForm(person)">
+        <ngb-highlight [result]="person.personChk" [term]="findInList">
+        </ngb-highlight>
+      </td>
+
+      <!-- personContactInfo -->
+      <td (click)="populateForm(person)">
+        <ngb-highlight [result]="person.personContactInfo" [term]="findInList">
         </ngb-highlight>
       </td>
 

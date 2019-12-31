@@ -11,12 +11,6 @@ import { LoginComponent } from './pages/login/login.component';
 import { NotfoundComponent } from './pages/notfound/notfound.component';
 
 
-import { EmployeesComponent } from './employees/employees.component';
-import { BootstrapComponent } from './bootstrap/bootstrap.component';
-import { CarouselComponent } from './bootstrap/carousel/carousel.component';
-
-
-
 const routes: Routes = [
   {
     path: "",
@@ -31,7 +25,6 @@ const routes: Routes = [
         path: "home",
         component: HomeComponent
       },
-
       {
         path: "login",
         component: LoginComponent
@@ -57,19 +50,6 @@ const routes: Routes = [
     data: {
       externalUrl: 'http://localhost:4200/'
     }
-  },
-
-  {
-    path: 'employee',
-    component: EmployeesComponent,
-  },
-  {
-    path: 'bootstrap',
-    component: BootstrapComponent
-  },
-  {
-    path: 'carousel',
-    component: CarouselComponent
   },
 
   { path: "not-found", component: NotfoundComponent },

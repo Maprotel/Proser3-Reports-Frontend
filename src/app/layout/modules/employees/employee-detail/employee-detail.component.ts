@@ -1,4 +1,3 @@
-
 // Angular
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
@@ -12,15 +11,13 @@ import { ToastrService } from 'ngx-toastr';
 
 import { EmployeeModel } from 'src/shared/models';
 
-
 @Component({
-  selector: 'app-employee',
-  templateUrl: './employee.component.html',
-  styleUrls: ['./employee.component.scss'],
+  selector: 'app-employee-detail',
+  templateUrl: './employee-detail.component.html',
+  styleUrls: ['./employee-detail.component.s.scss'],
   providers: [{ provide: TRANSLOCO_SCOPE, useValue: 'employee' }]
 })
-export class EmployeeComponent implements OnInit {
-
+export class EmployeeDetailComponent implements OnInit {
 
   constructor(
     private employeeService: EmployeeService,
@@ -75,11 +72,5 @@ export class EmployeeComponent implements OnInit {
     });
   }
 
-
-  // oneRecord(item: EmployeeModel) {
-  //   this.employeeService.getSingleRecord(item).subscribe(res => {
-  //     this.employeeService.list = res;
-  //   });
-  // }
 
 }

@@ -10,9 +10,7 @@ import { tap, catchError, map } from 'rxjs/operators';
 // Models
 import { EmployeeModel } from 'src/shared/models/';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class EmployeeService {
 
   formData: EmployeeModel;

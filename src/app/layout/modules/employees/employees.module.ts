@@ -16,20 +16,21 @@ import { HeaderModule } from '../../../header/header.module';
 // Shared
 import { AlertModule } from 'src/shared/modules';
 
+
 // Routing
-import { PersonRoutingModule } from './person-routing.module';
+import { EmployeesRoutingModule } from './employees-routing.module';
 
 // Services
-import { PersonService } from 'src/shared/services';
+import { EmployeeService } from 'src/shared/services';
 
 // Components
-import { PersonComponent } from './person.component';
-import { PersonDetailComponent } from './person-detail/person-detail.component';
-import { PersonListComponent } from './person-list/person-list.component';
+import { EmployeesComponent } from './employees.component';
+import { EmployeeDetailComponent } from './employee-detail/employee-detail.component';
+import { EmployeeListComponent } from './employee-list/employee-list.component';
 
 
 @NgModule({
-  declarations: [PersonComponent, PersonDetailComponent, PersonListComponent],
+  declarations: [EmployeesComponent, EmployeeListComponent, EmployeeDetailComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -39,8 +40,8 @@ import { PersonListComponent } from './person-list/person-list.component';
     NgbModule,
     TranslocoRootModule,
     FontAwesomeModule,
-    PersonRoutingModule
+    EmployeesRoutingModule
   ],
-  providers: [PersonService, { provide: TRANSLOCO_SCOPE, useValue: 'person' }]
+  providers: [EmployeeService, { provide: TRANSLOCO_SCOPE, useValue: 'employee' }]
 })
-export class PersonModule { }
+export class EmployeesModule { }

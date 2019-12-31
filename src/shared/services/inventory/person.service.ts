@@ -11,9 +11,7 @@ import { tap, catchError, map } from 'rxjs/operators';
 // Models
 import { PersonModel } from 'src/shared/models';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class PersonService {
 
   formData: PersonModel;

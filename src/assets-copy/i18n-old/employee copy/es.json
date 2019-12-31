@@ -1,0 +1,20 @@
+{
+  "TXT-GET_ALL": "Todos",
+  "TXT-EXPORT": "Exportar",
+  "TXT-NEW": "Nuevo",
+  "TXT-FULL_TEXT_SEARCH": "Buscar: ",
+  "TXT-NUM": "No",
+  "TXT-FULL_NAME": "Nombre completo",
+  "TXT-MOBILE": "Móvil",
+  "TXT-POSITION": "Cargo",
+  "TXT-PROFILE_DELETION": "Eliminar este empleado",
+  "TXT-ARE_YOU_SURE_YOU_WANT_TO_DELETE": "Está seguro que desea borrar al empleado: ",
+  "TXT-ALL_INFORMATION_WILL_BE_DELETED": "Toda su información será eliminada",
+  "TXT-THIS_CAN_NOT_BE_UNDONE": "Esta acción es irreversible",
+  "TXT-CANCEL": "Cancelar",
+  "TXT-OK": "Ok",
+  "TXT-EMPLOYEE_REGISTER": "Registro de empleado",
+  "TXT-THIS_FIELD_IS_REQUIRED": "Este campo es requerido obligatoriamente",
+  "TXT-EMPLOYEE_CODE": "Código de empleado",
+  "TXT-SUBMIT": "Guardar"
+}

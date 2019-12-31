@@ -5,6 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from '@angular/common/http';
+import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 
 // Vendors
 import { ToastrModule } from 'ngx-toastr';
@@ -41,6 +42,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { NotfoundComponent } from './pages/notfound/notfound.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -71,7 +73,14 @@ import { NotfoundComponent } from './pages/notfound/notfound.component';
     FontAwesomeModule,
     AppRoutingModule
   ],
-  providers: [EmployeeService],
+  providers: [EmployeeService,
+    {
+      provide: 'externalUrlRedirectResolver',
+      useValue: (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
+        window.location.href = (route.data as any).externalUrl;
+      }
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

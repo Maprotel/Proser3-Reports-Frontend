@@ -1,0 +1,129 @@
+<ng-container *transloco="let t">
+  <section class="d-flex justify-content-between">
+    <div>
+      <button class="btn btn-outline-primary btn-sm mr-1"
+              (click)="onGetRecords()"> {{ t('TXT-PERSON-GET_ALL') }}</button>
+      <button class="btn btn-outline-primary btn-sm mr-1"
+              (click)="onExportToCsv()">{{ t('TXT-PERSON-EXPORT') }}</button>
+      <button class="btn btn-outline-primary btn-sm mr-1"
+              (click)="unPopulateForm()">{{ t('TXT-PERSON-NEW') }}</button>
+    </div>
+
+    <div>
+      <label>{{ t('TXT-PERSON-FULL_TEXT_SEARCH') }}</label>
+      <input type="text" class=" agent-box submenu-field ml-1"
+             placeholder="{{ t('TXT-PERSON-FULL_TEXT_SEARCH') }}"
+             [(ngModel)]="findInList" (keyup)="onSearch(findInList)"
+             (click)="clearForm()" /></div>
+  </section>
+
+
+  <table
+         class="table table-hover table-wrapper-scroll-y table-scrollbar tableFixHead">
+
+    <thead>
+      <tr class="tableHeaderBackground">
+
+        <!-- Id -->
+        <th scope="col" class="tableHeaderBackground" width="10%">
+          {{ t('TXT-PERSON-NUM') }}</th>
+
+        <!-- Fullname -->
+        <th scope="col" class="tableHeaderBackground" sortable="personFullName"
+            (sort)="onSort($event)" width="50%">
+          {{ t('TXT-PERSON-FULL_NAME') }}</th>
+
+        <!-- Mobile -->
+        <th scope="col" class="tableHeaderBackground" sortable="personMobile"
+            (sort)="onSort($event)" width="20%">{{ t('TXT-PERSON-MOBILE') }}
+        </th>
+
+        <!-- Position -->
+        <th scope="col" class="tableHeaderBackground" sortable="personPosition"
+            (sort)="onSort($event)" width="20%">
+          {{ t('TXT-PERSON-POSITION') }}</th>
+
+        <!-- Delete icon -->
+        <th scope="col" class="tableHeaderBackground" sortable="personPosition"
+            (sort)="onSort($event)" width="10%">
+          #</th>
+      </tr>
+    </thead>
+
+
+    <tr *ngFor="let person of this.personService.list; index as i">
+
+      <!-- Index -->
+      <th scope="row">{{ i + 1 }}</th>
+
+      <!-- personFullName -->
+      <td (click)="populateForm(person)">
+        <ngb-highlight [result]="person.personFullName" [term]="findInList">
+        </ngb-highlight>
+
+      </td>
+
+      <!-- personMobile -->
+      <td (click)="populateForm(person)">
+        <ngb-highlight [result]="person.personMobile" [term]="findInList">
+        </ngb-highlight>
+      </td>
+
+      <!-- personPosition -->
+      <td (click)="populateForm(person)">
+        <ngb-highlight [result]="person.personPosition" [term]="findInList">
+        </ngb-highlight>
+      </td>
+
+      <!-- Button -->
+      <td>
+        <button (click)="open(deleteConfirm)"
+                (mouseenter)="populateForm(person)"
+                (mouseleave)="unPopulateForm()"
+                class=" btn btn-sm btn-outline-danger">
+          <fa-icon [icon]="faTimes"></fa-icon>
+        </button>
+      </td>
+    </tr>
+  </table>
+
+
+
+  <ng-template #deleteConfirm class="modal-full">
+
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-title">
+        {{ t('TXT-PERSON-PROFILE_DELETION') }}
+      </h4>
+      <button type="button" class="close" aria-describedby="modal-title"
+              (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <p><strong>{{ t('TXT-PERSON-ARE_YOU_SURE_YOU_WANT_TO_DELETE') }}<span
+                class="text-primary">{{selectedRow.personFullName}}</span>
+          profile?</strong></p>
+      <p>{{ t('TXT-PERSON-ALL_INFORMATION_WILL_BE_DELETED') }}
+        <span
+              class="text-danger">{{ t('TXT-PERSON-THIS_CAN_NOT_BE_UNDONE') }}</span>
+      </p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-secondary"
+              (click)="modal.dismiss('cancel click')">{{ t('TXT-PERSON-CANCEL') }}</button>
+      <button type="button" class="btn btn-danger"
+              (click)="onDeleteRecord(selectedRow)">{{ t('TXT-PERSON-OK') }}</button>
+    </div>
+
+
+  </ng-template>
+
+</ng-container>
+
+<!-- TEXT 
+Are you sure you want to delete
+All information associated to this user profile will be permanently deleted.
+This operation can not be undone.
+
+-->

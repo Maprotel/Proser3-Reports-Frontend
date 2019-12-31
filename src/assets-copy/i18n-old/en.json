@@ -1,0 +1,9 @@
+{
+  "TXT-EMPLOYEE_REGISTER": "Missing value for 'TXT-EMPLOYEE_REGISTER'",
+  "TXT-FULL_NAME": "Missing value for 'TXT-FULL_NAME'",
+  "TXT-THIS_FIELD_IS_REQUIRED": "Missing value for 'TXT-THIS_FIELD_IS_REQUIRED'",
+  "TXT-POSITION": "Missing value for 'TXT-POSITION'",
+  "TXT-EMPLOYEE_CODE": "Missing value for 'TXT-EMPLOYEE_CODE'",
+  "TXT-MOBILE": "Missing value for 'TXT-MOBILE'",
+  "TXT-SUBMIT": "Missing value for 'TXT-SUBMIT'"
+}

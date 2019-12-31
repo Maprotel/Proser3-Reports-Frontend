@@ -1,13 +1,27 @@
-/* You can add global styles to this file, and also import other style files */
-form-group>input{
-  font-weight: bolder;
-}
-form-group>label {
-  font-weight: lighter;
+form {
+  padding: 5px;
+  background-color: lightblue;
 }
 
+.form-title{
+  font-size: 24px;
+}
+
+.form-group label {
+  margin-top: 0;
+  font-size: 0.9rem;
+  color: darkblue;
+}
+
+.form-group input {
+  font-weight: bolder;
+  margin-top: 0;
+  color: red;
+}
+
+
 button[type="submit"] {
-  background-color: #67dfd4;
+  background-color: #77bb29;
   color: #fff;
 }
 
@@ -18,7 +32,12 @@ button[disabled] {
 
 
 input.ng-touched.ng-invalid {
+  background-color: lightpink;
   border-color: #dc6545;
+}
+
+input.ng-touched {
+  background-color: lightpink;
 }
 
 div.validation-error {

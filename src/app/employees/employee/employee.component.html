@@ -3,7 +3,7 @@
 
   <!-- Title -->
   <h1 class="form-title text-center">
-    {{ t('EMPLOYEE_REGISTER.EMPLOYEE_REGISTER') }}
+    {{ t('TXT-EMPLOYEES-EMPLOYEE_REGISTER') }}
   </h1>
   <section class="card"> </section>
 
@@ -14,19 +14,19 @@
 
     <!-- FULL NAME -->
     <div class="form-group">
-      <label>{{ t('EMPLOYEE_REGISTER.FULL_NAME')}}</label>
+      <label>{{ t('TXT-EMPLOYEES-FULL_NAME')}}</label>
       <input name="employeeFullName" #employeeFullName="ngModel"
              [(ngModel)]="employeeService.formData.employeeFullName"
              class="form-control" required>
       <div class="validation-error"
            *ngIf="employeeFullName.invalid && employeeFullName.touched">
-        {{t('EMPLOYEE_REGISTER.THIS_FIELD_IS_REQUIRED')}}
+        {{t('TXT-EMPLOYEES-THIS_FIELD_IS_REQUIRED')}}
       </div>
     </div>
 
     <!-- POSITION -->
     <div class="form-group ">
-      <label>{{ t('EMPLOYEE_REGISTER.POSITION')}}</label>
+      <label>{{ t('TXT-EMPLOYEES-POSITION')}}</label>
       <input name="employeePosition" #employeePosition="ngModel"
              [(ngModel)]="employeeService.formData.employeePosition"
              class="form-control">
@@ -37,7 +37,7 @@
 
       <!-- EMPLOYEE CODE -->
       <div class="form-group  col-md-6">
-        <label>{{ t('EMPLOYEE_REGISTER.EMPLOYEE_CODE')}}</label>
+        <label>{{ t('TXT-EMPLOYEES-EMPLOYEE_CODE')}}</label>
         <input name="employeeCode" #employeeCode="ngModel"
                [(ngModel)]="employeeService.formData.employeeCode"
                class="form-control">
@@ -45,7 +45,7 @@
 
       <!-- MOBILE -->
       <div class="form-group col-md-6">
-        <label>{{ t('EMPLOYEE_REGISTER.MOBILE')}}</label>
+        <label>{{ t('TXT-EMPLOYEES-MOBILE')}}</label>
 
         <input name="employeeMobile" #employeeMobile="ngModel"
                [(ngModel)]="employeeService.formData.employeeMobile"
@@ -59,7 +59,7 @@
     <!-- BUTTONS -->
     <div class="form-group">
       <button type="submit" [disabled]="form.invalid || form.pristine"
-              class="btn btn-lg btn-block">{{t('EMPLOYEE_REGISTER.SUBMIT')}}</button>
+              class="btn btn-md ">{{t('TXT-EMPLOYEES-SUBMIT')}}</button>
     </div>
 
   </form>

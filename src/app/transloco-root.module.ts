@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import {
   TRANSLOCO_LOADER,
+  TRANSLOCO_SCOPE,
   Translation,
   TranslocoLoader,
   TRANSLOCO_CONFIG,
@@ -15,7 +16,7 @@ export class TranslocoHttpLoader implements TranslocoLoader {
   constructor(private http: HttpClient) { }
 
   getTranslation(lang: string) {
-    return this.http.get<Translation>(`/assets/i18n/AppModule/${lang}.json`);
+    return this.http.get<Translation>(`/assets/i18n/${lang}.json`);
   }
 }
 
@@ -26,13 +27,14 @@ export class TranslocoHttpLoader implements TranslocoLoader {
       provide: TRANSLOCO_CONFIG,
       useValue: translocoConfig({
         availableLangs: ['en', 'es'],
-        defaultLang: 'en',
+        defaultLang: 'es',
         // Remove this option if your application doesn't support changing language in runtime.
         reRenderOnLangChange: true,
         prodMode: environment.production,
       })
     },
-    { provide: TRANSLOCO_LOADER, useClass: TranslocoHttpLoader }
+    { provide: TRANSLOCO_LOADER, useClass: TranslocoHttpLoader },
+    { provide: TRANSLOCO_SCOPE, useValue: 'employee' }
   ]
 })
 export class TranslocoRootModule { }

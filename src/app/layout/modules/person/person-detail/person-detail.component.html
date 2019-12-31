@@ -1,0 +1,67 @@
+<ng-container *transloco="let t">
+
+
+  <!-- Title -->
+  <h1 class="form-title text-center">
+    {{ t('TXT-PERSON-PERSON_REGISTER') }}
+  </h1>
+  <section class="card"> </section>
+
+  <form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
+    <!-- HIDDEN ID -->
+    <input type="hidden" name="personId" #personId="ngModel"
+           [(ngModel)]="personService.formData.personId" id="">
+
+    <!-- FULL NAME -->
+    <div class="form-group">
+      <label>{{ t('TXT-PERSON-FULL_NAME')}}</label>
+      <input name="personFullName" #personFullName="ngModel"
+             [(ngModel)]="personService.formData.personFullName"
+             class="form-control" required>
+      <div class="validation-error"
+           *ngIf="personFullName.invalid && personFullName.touched">
+        {{t('TXT-PERSON-THIS_FIELD_IS_REQUIRED')}}
+      </div>
+    </div>
+
+    <!-- POSITION -->
+    <div class="form-group ">
+      <label>{{ t('TXT-PERSON-POSITION')}}</label>
+      <input name="personPosition" #personPosition="ngModel"
+             [(ngModel)]="personService.formData.personPosition"
+             class="form-control">
+    </div>
+
+
+    <section class="form-row">
+
+      <!-- PERSON CODE -->
+      <div class="form-group  col-md-6">
+        <label>{{ t('TXT-PERSON-PERSON_CODE')}}</label>
+        <input name="personCode" #personCode="ngModel"
+               [(ngModel)]="personService.formData.personCode"
+               class="form-control">
+      </div>
+
+      <!-- MOBILE -->
+      <div class="form-group col-md-6">
+        <label>{{ t('TXT-PERSON-MOBILE')}}</label>
+
+        <input name="personMobile" #personMobile="ngModel"
+               [(ngModel)]="personService.formData.personMobile"
+               class="form-control">
+      </div>
+
+
+
+    </section>
+
+    <!-- BUTTONS -->
+    <div class="form-group">
+      <button type="submit" [disabled]="form.invalid || form.pristine"
+              class="btn btn-md ">{{t('TXT-PERSON-SUBMIT')}}</button>
+    </div>
+
+  </form>
+
+</ng-container>

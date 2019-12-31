@@ -1,4 +1,5 @@
 
+
 // Angular
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
@@ -8,16 +9,16 @@ import { throwError, Observable } from 'rxjs';
 import { tap, catchError, map } from 'rxjs/operators';
 
 // Models
-import { EmployeeModel } from 'src/shared/models/';
+import { PersonModel } from 'src/shared/models';
 
 @Injectable({
   providedIn: 'root'
 })
-export class EmployeeService {
+export class PersonService {
 
-  formData: EmployeeModel;
-  list: EmployeeModel[];
-  fullList: EmployeeModel[];
+  formData: PersonModel;
+  list: PersonModel[];
+  fullList: PersonModel[];
 
 
   readonly rootURL = `http://localhost:3151`
@@ -34,31 +35,31 @@ export class EmployeeService {
   }
 
   getRecords() {
-    return this.httpClient.get<EmployeeModel[]>(`${this.rootURL}/employees`).pipe(
+    return this.httpClient.get<PersonModel[]>(`${this.rootURL}/people`).pipe(
       map(data => data),
       catchError(this.handleError)
     );
   }
 
   getSingleRecord(id) {
-    // let id = formData.employeeId;
-    return this.httpClient.get(`${this.rootURL}/employees/${id}`)
+    // let id = formData.PersonId;
+    return this.httpClient.get(`${this.rootURL}/people/${id}`)
   }
 
-  postRecord(formData: EmployeeModel) {
-    delete formData.employeeId
-    return this.httpClient.post<EmployeeModel>(`${this.rootURL}/employees`, formData)
+  postRecord(formData: PersonModel) {
+    delete formData.personId
+    return this.httpClient.post<PersonModel>(`${this.rootURL}/people`, formData)
   }
 
-  putRecord(formData: EmployeeModel) {
-    let id = formData.employeeId;
-    return this.httpClient.put<EmployeeModel>(`${this.rootURL}/employees/${id}`, formData)
+  putRecord(formData: PersonModel) {
+    let id = formData.personId;
+    return this.httpClient.put<PersonModel>(`${this.rootURL}/people/${id}`, formData)
   }
 
 
-  deleteRecord(formData: EmployeeModel) {
-    let id = formData.employeeId;
-    return this.httpClient.delete(`${this.rootURL}/employees/${id}`)
+  deleteRecord(formData: PersonModel) {
+    let id = formData.personId;
+    return this.httpClient.delete(`${this.rootURL}/people/${id}`)
   }
 
   ping() {

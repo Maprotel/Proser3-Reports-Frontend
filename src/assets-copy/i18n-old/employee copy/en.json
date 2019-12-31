@@ -1,0 +1,20 @@
+{
+  "TXT-GET_ALL": "Missing value for 'TXT-GET_ALL'",
+  "TXT-EXPORT": "Missing value for 'TXT-EXPORT'",
+  "TXT-NEW": "Missing value for 'TXT-NEW'",
+  "TXT-FULL_TEXT_SEARCH": "Missing value for 'TXT-FULL_TEXT_SEARCH'",
+  "TXT-NUM": "Missing value for 'TXT-NUM'",
+  "TXT-FULL_NAME": "Full name",
+  "TXT-MOBILE": "Mobile",
+  "TXT-POSITION": "Position",
+  "TXT-PROFILE_DELETION": "Missing value for 'TXT-PROFILE_DELETION'",
+  "TXT-ARE_YOU_SURE_YOU_WANT_TO_DELETE": "Missing value for 'TXT-ARE_YOU_SURE_YOU_WANT_TO_DELETE'",
+  "TXT-ALL_INFORMATION_WILL_BE_DELETED": "Missing value for 'TXT-ALL_INFORMATION_WILL_BE_DELETED'",
+  "TXT-THIS_CAN_NOT_BE_UNDONE": "Missing value for 'TXT-THIS_CAN_NOT_BE_UNDONE'",
+  "TXT-CANCEL": "Missing value for 'TXT-CANCEL'",
+  "TXT-OK": "Missing value for 'TXT-OK'",
+  "TXT-EMPLOYEE_REGISTER": "Employee Register",
+  "TXT-THIS_FIELD_IS_REQUIRED": "This field is required",
+  "TXT-EMPLOYEE_CODE": "Employee code",
+  "TXT-SUBMIT": "Submit"
+}

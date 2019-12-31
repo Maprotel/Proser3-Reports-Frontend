@@ -49,6 +49,17 @@ const routes: Routes = [
   },
 
   {
+    path: 'origin',
+    component: AppComponent,
+    resolve: {
+      url: 'externalUrlRedirectResolver'
+    },
+    data: {
+      externalUrl: 'http://localhost:4200/'
+    }
+  },
+
+  {
     path: 'employee',
     component: EmployeesComponent,
   },

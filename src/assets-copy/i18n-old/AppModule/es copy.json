@@ -1,0 +1,9 @@
+{
+  "TXT-EMPLOYEE_REGISTER": "Registro de empleado",
+  "TXT-FULL_NAME": "Nombre completo",
+  "TXT-POSITION": "Cargo",
+  "TXT-EMPLOYEE_CODE": "Código de empleado",
+  "TXT-MOBILE": "Móvil",
+  "TXT-THIS_FIELD_IS_REQUIRED": "Este campo es requerido obligatoriamente",
+  "TXT-SUBMIT": "Guardar"
+}

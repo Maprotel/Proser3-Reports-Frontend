@@ -9,16 +9,15 @@ import { TRANSLOCO_SCOPE } from '@ngneat/transloco';
 import { AlertModel } from 'src/shared/models';
 
 // Services
-import { EmployeeService } from 'src/shared/services';
-
+import { PersonService } from 'src/shared/services';
 
 @Component({
-  selector: 'app-employees',
-  templateUrl: './employees.component.html',
-  styleUrls: ['./employees.component.scss'],
-  providers: [{ provide: TRANSLOCO_SCOPE, useValue: 'employee' }]
+  selector: 'app-person',
+  templateUrl: './person.component.html',
+  styleUrls: ['./person.component.scss'],
+  providers: [{ provide: TRANSLOCO_SCOPE, useValue: 'person' }]
 })
-export class EmployeesComponent implements OnInit {
+export class PersonComponent implements OnInit {
 
   alertMessage: AlertModel;
 
@@ -29,7 +28,7 @@ export class EmployeesComponent implements OnInit {
   private subscription: Subscription = new Subscription();
 
   constructor(
-    private employeeService: EmployeeService,
+    private personService: PersonService,
   ) {
     this.alertMessage = new AlertModel();
     this.timerConnected = 0;
@@ -66,7 +65,7 @@ export class EmployeesComponent implements OnInit {
   }
 
   onPing() {
-    this.employeeService.ping().subscribe(
+    this.personService.ping().subscribe(
       res => {
         this.alertMessage.alertShow = false;
       }, error => {

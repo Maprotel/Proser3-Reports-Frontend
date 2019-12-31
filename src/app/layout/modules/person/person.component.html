@@ -1,0 +1,43 @@
+<app-header></app-header>
+
+<div class="row">
+  <div class="col-md-3">
+    <app-person-detail></app-person-detail>
+  </div>
+
+  <div class="col-md-9">
+    <app-person-list (alertBack)="onAlertBack($event)">
+    </app-person-list>
+  </div>
+
+</div>
+
+<article *ngIf="alertMessage.alertShow">
+  <app-alert-stripe [alertMessage]="alertMessage">
+  </app-alert-stripe>
+</article>
+
+<article *ngIf="alertMessage.alertShow">
+  <div class="jumbotron">
+    <h1 class="display-1">Conectando...</h1>
+  </div>
+</article>
+
+<section class="">
+  <article *ngIf="!alertMessage.alertShow">
+    <ng-container *transloco="let t">
+      <div class="jumbotron">
+
+        <div class="row">
+          <div class="col-md-3">
+            <app-person-detail></app-person-detail>
+          </div>
+          <div class="col-md-9">
+            <app-person-list (alertBack)="onAlertBack($event)">
+            </app-person-list>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </article>
+</section>

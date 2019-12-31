@@ -3,17 +3,21 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
+// Vendor
+import { TRANSLOCO_SCOPE } from '@ngneat/transloco';
+
 // Services
-import { EmployeeService } from '../../../shared/services/inventory/employee.service';
+import { EmployeeService } from 'src/shared/services';
 import { ToastrService } from 'ngx-toastr';
 
-import { EmployeeModel } from '../../../shared/models/inventory/employee.model';
+import { EmployeeModel } from 'src/shared/models';
 
 
 @Component({
   selector: 'app-employee',
   templateUrl: './employee.component.html',
-  styleUrls: ['./employee.component.scss']
+  styleUrls: ['./employee.component.scss'],
+  providers: [{ provide: TRANSLOCO_SCOPE, useValue: 'employee' }]
 })
 export class EmployeeComponent implements OnInit {
 

@@ -15,20 +15,20 @@ import { TRANSLOCO_SCOPE } from '@ngneat/transloco';
 
 
 // Models
-import { EmployeeModel } from 'src/shared/models';
+import { PersonModel } from 'src/shared/models';
 import { AlertModel } from 'src/shared/models';
 
 // Services
-import { EmployeeService } from 'src/shared/services';
+import { PersonService } from 'src/shared/services';
 
 
 @Component({
-  selector: 'app-employee-list',
-  templateUrl: './employee-list.component.html',
-  styleUrls: ['./employee-list.component.scss'],
-  providers: [{ provide: TRANSLOCO_SCOPE, useValue: 'employee' }]
+  selector: 'app-person-list',
+  templateUrl: './person-list.component.html',
+  styleUrls: ['./person-list.component.s.scss'],
+  providers: [{ provide: TRANSLOCO_SCOPE, useValue: 'person' }]
 })
-export class EmployeeListComponent implements OnInit {
+export class PersonListComponent implements OnInit {
   @Output() alertBack: EventEmitter<AlertModel> = new EventEmitter()
 
   alertMessage: AlertModel;
@@ -50,7 +50,7 @@ export class EmployeeListComponent implements OnInit {
     decimalSeparator: '.',
     showLabels: true,
     showTitle: false,
-    title: 'Employee register',
+    title: 'Person register',
     useTextFile: false,
     useBom: true,
     useKeysAsHeaders: false,
@@ -69,7 +69,7 @@ export class EmployeeListComponent implements OnInit {
   selectedRow
 
   constructor(
-    private employeeService: EmployeeService,
+    private personService: PersonService,
     private toastr: ToastrService,
     private modalService: NgbModal,
   ) {
@@ -87,10 +87,10 @@ export class EmployeeListComponent implements OnInit {
 
   onGetRecords() {
     this.clearForm();
-    this.employeeService.getRecords().subscribe(
+    this.personService.getRecords().subscribe(
       res => {
-        this.employeeService.list = res
-        this.employeeService.fullList = res
+        this.personService.list = res
+        this.personService.fullList = res
         this.collectionSize = res.length
         this.alertMessage = new AlertModel()
       }, error => {
@@ -108,26 +108,26 @@ export class EmployeeListComponent implements OnInit {
     );
   }
 
-  onDeleteRecord(employee: EmployeeModel) {
-    console.log('employee', employee);
+  onDeleteRecord(person: PersonModel) {
+    console.log('person', person);
 
-    this.employeeService.deleteRecord(employee).subscribe(res => {
-      this.toastr.warning('Deleted successfully', 'Employee Register');
+    this.personService.deleteRecord(person).subscribe(res => {
+      this.toastr.warning('Deleted successfully', 'Person Register');
       this.onGetRecords();
     });
 
     this.modal.close()
   }
 
-  populateForm(employee: EmployeeModel) {
-    this.employeeService.formData = Object.assign({}, employee);
-    this.selectedRow = Object.assign({}, employee);
+  populateForm(person: PersonModel) {
+    this.personService.formData = Object.assign({}, person);
+    this.selectedRow = Object.assign({}, person);
   }
 
   unPopulateForm() {
-    let employee = new EmployeeModel()
-    this.employeeService.formData = Object.assign({}, employee);
-    this.selectedRow = Object.assign({}, employee);
+    let person = new PersonModel()
+    this.personService.formData = Object.assign({}, person);
+    this.selectedRow = Object.assign({}, person);
 
   }
 
@@ -137,10 +137,10 @@ export class EmployeeListComponent implements OnInit {
 
   onSearch(findInList) {
     if (findInList.length > 0) {
-      this.employeeService.list = this.search(findInList)
+      this.personService.list = this.search(findInList)
     }
     else {
-      this.employeeService.list = this.employeeService.fullList
+      this.personService.list = this.personService.fullList
     }
   }
 
@@ -149,31 +149,30 @@ export class EmployeeListComponent implements OnInit {
   }
 
 
-  search(text: string): EmployeeModel[] {
-    return this.employeeService.fullList.filter(employee => {
+  search(text: string): PersonModel[] {
+    return this.personService.fullList.filter(person => {
       const term = text.toLowerCase();
       return (
-        employee.employeeFullName.toLowerCase().includes(term) ||
-        employee.employeePosition.toLowerCase().includes(term) ||
-        employee.employeeMobile.toLowerCase().includes(term)
+        person.personFullName.toLowerCase().includes(term) ||
+        person.personTypeName.toLowerCase().includes(term) ||
+        person.personTypeId.toLowerCase().includes(term) ||
+        person.personContactInfo.toLowerCase().includes(term)
       )
     });
   }
 
   clearForm() {
-    this.employeeService.formData = new EmployeeModel();
+    this.personService.formData = new PersonModel();
   }
 
   // Export data
 
   onExportToCsv() {
-    this.csvExporter.generateCsv(this.employeeService.list);
+    this.csvExporter.generateCsv(this.personService.list);
   }
 
   open(name: string) {
     this.modal = this.modalService.open(name);
   }
-
-
 
 }

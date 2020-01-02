@@ -1,9 +1,15 @@
+
 // Angular
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 // Vendor
+import { ToastrModule } from 'ngx-toastr';
+import { TranslocoRootModule } from './../transloco-root.module';
+import { TRANSLOCO_SCOPE } from '@ngneat/transloco';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 
 // Locals
 import { HeaderMenuBrandModule } from 'src/shared/modules/header-menu-brand/header-menu-brand.module';
@@ -22,8 +28,12 @@ import { HeaderMenuAuxiliarComponent } from './header-menu-auxiliar/header-menu-
   declarations: [HeaderComponent, HeaderMenuUserComponent, HeaderMenuMainComponent, HeaderMenuOrganizationComponent, HeaderMenuPersonComponent, HeaderMenuOperationComponent, HeaderMenuAuxiliarComponent],
   imports: [
     CommonModule,
-    HeaderMenuBrandModule,
+    ToastrModule,
     NgbModule,
+    TranslocoRootModule,
+    FontAwesomeModule,
+    HeaderMenuBrandModule,
+
     HeaderRoutingModule
   ],
   exports: [HeaderComponent]

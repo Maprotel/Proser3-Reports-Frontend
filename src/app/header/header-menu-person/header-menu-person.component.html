@@ -1,9 +1,13 @@
-<div ngbDropdown class="d-inline-block">
-  <button class="btn text-white" id="headerMenuMain"
-          ngbDropdownToggle>Personas</button>
-  <div ngbDropdownMenu aria-labelledby="headerMenuMain">
-    <button ngbDropdownItem [routerLink]="'/layout/employee'">Employee</button>
-    <button ngbDropdownItem [routerLink]="'/layout/person'">Persona</button>
-    <button ngbDropdownItem>Something else is here</button>
+<ng-container *transloco="let t;">
+  <div ngbDropdown class="d-inline-block">
+    <button class="btn text-white" id="headerMenuMain"
+            ngbDropdownToggle>{{t('TXT-HEADER-PEOPLE')}}</button>
+    <div ngbDropdownMenu aria-labelledby="headerMenuMain">
+      <button ngbDropdownItem
+              [routerLink]="'/layout/employee'">{{t('TXT-HEADER-EMPLOYEE')}}</button>
+      <button ngbDropdownItem
+              [routerLink]="'/layout/person'">{{t('TXT-HEADER-PERSON')}}</button>
+      <button ngbDropdownItem>Something else is here</button>
+    </div>
   </div>
-</div>
+</ng-container>
